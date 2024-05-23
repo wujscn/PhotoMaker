@@ -37,10 +37,8 @@ DEFAULT_ASPECT_RATIO = ASPECT_RATIO_LABELS[0]
 # download PhotoMaker checkpoint to cache
 photomaker_ckpt = hf_hub_download(repo_id="TencentARC/PhotoMaker", filename="photomaker-v1.bin", repo_type="model")
 
-if device == "mps":
-    torch_dtype = torch.float16
-else:
-    torch_dtype = torch.bfloat16
+
+torch_dtype = torch.float16
 
 pipe = PhotoMakerStableDiffusionXLPipeline.from_pretrained(
     base_model_path, 
